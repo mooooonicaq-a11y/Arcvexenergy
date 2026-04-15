@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcvex Energy - Premium Energy Supplements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-benefit {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .bundle-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .bundle-title {
+            font-size: 28px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .bundle-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .bundle-price {
+            font-size: 42px;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .bundle-items {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .bundle-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .about-section {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            margin-bottom: 25px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">ARCVEX</div>
+            <nav>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Unlock Your Peak Performance</h1>
+            <p>Premium energy supplements designed for the modern athlete and professional</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Product Line</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span>Flow - Caffeine-Free Mushroom Blend</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Flow</div>
+                        <div class="product-benefit">Caffeine-Free Mushroom Blend</div>
+                        <div class="product-description">
+                            Experience sustained mental clarity and focus without caffeine. Our proprietary mushroom blend supports cognitive function and promotes a calm, alert state perfect for work and study sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span>Hold - Appetite Control Formula</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Hold</div>
+                        <div class="product-benefit">Appetite Control Formula</div>
+                        <div class="product-description">
+                            Maintain your fitness goals with our advanced appetite control supplement. Designed to support healthy eating habits and help you stay on track with your nutrition plan throughout the day.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span>Push - Athletic Energy Boost</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Push</div>
+                        <div class="product-benefit">Athletic Energy Boost</div>
+                        <div class="product-description">
+                            Maximize your workout performance with our energizing formula. Engineered to provide sustained energy, enhanced endurance, and mental sharpness for intense training sessions and competitions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bundle Offer -->
+            <div class="bundle-section">
+                <div class="bundle-title">The Complete Performance Bundle</div>
+                <div class="bundle-description">Get all three formulas and experience the complete Arcvex advantage</div>
+                <div class="bundle-price">$34.99</div>
+                <div class="bundle-items">
+                    <div class="bundle-item">✓ Flow (Caffeine-Free)</div>
+                    <div class="bundle-item">✓ Hold (Appetite Control)</div>
+                    <div class="bundle-item">✓ Push (Energy Boost)</div>
+                </div>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Arcvex Energy</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Premium Energy Solutions for Modern Living</h2>
+                    <p>
+                        Arcvex Energy is committed to developing the highest-quality energy and wellness supplements for athletes, professionals, and health-conscious individuals worldwide.
+                    </p>
+                    <p>
+                        Our products are formulated with carefully selected ingredients, backed by scientific research, and designed to deliver real results. Whether you're looking for sustained focus, appetite management, or athletic performance enhancement, Arcvex has the solution.
+                    </p>
+                    <p>
+                        We believe in transparency, quality, and innovation. Every product undergoes rigorous testing to ensure purity, potency, and safety.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <span>Brand Visual</span>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Science-Backed</h3>
+                    <p>Formulated with research-proven ingredients for maximum efficacy</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Quality</h3>
+                    <p>Rigorous testing and quality control in every batch</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Reach</h3>
+                    <p>Available worldwide through trusted e-commerce partners</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💪</div>
+                    <h3>Performance Focused</h3>
+                    <p>Designed for athletes and active professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p>Email: support@arcvexenergy.com</p>
+                <p>Business: Arcvex International Limited</p>
+                <p>Hong Kong</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM (HKT)</p>
+                <p>Saturday - Sunday: Closed</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 Arcvex Energy. All rights reserved. | Arcvex International Limited
+            </div>
+        </div>
+    </footer>
+
+    <!-- Placeholder Pages (for compliance) -->
+    <div style="display: none;">
+        <div id="privacy">
+            <h1>Privacy Policy</h1>
+            <p>Arcvex Energy is committed to protecting your privacy. We collect and use personal information in accordance with applicable laws and regulations. For detailed information about how we handle your data, please contact us at support@arcvexenergy.com</p>
+        </div>
+        <div id="terms">
+            <h1>Terms of Service</h1>
+            <p>By using our products and services, you agree to comply with all applicable laws and regulations. Arcvex Energy reserves the right to modify these terms at any time. For complete terms, please contact us at support@arcvexenergy.com</p>
+        </div>
+    </div>
+</body>
+</html>
